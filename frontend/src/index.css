@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+    background-image: 
+      radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 100% 0%, rgba(249, 115, 22, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 50% 100%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700/80 rounded-full border-2 border-transparent bg-clip-padding hover:bg-brand-500/80 transition-colors;
+  }
+
+  input, textarea, select {
+    @apply bg-slate-900/50 text-slate-100 border-slate-800 focus:outline-none;
+  }
+
+  option {
+    @apply bg-slate-900 text-slate-100;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-slate-900/40 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.36)];
+  }
+
+  .glass-card-sm {
+    @apply bg-slate-900/60 backdrop-blur-xl border border-white/5 rounded-2xl shadow-xl;
+  }
+
+  .glass-input {
+    @apply bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 
+           focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:bg-slate-800/60 transition-all duration-300;
+  }
+
+  .input-field {
+    @apply bg-slate-900/60 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 
+           focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500/50 transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden bg-gradient-to-br from-brand-500 to-brand-700 hover:from-brand-400 hover:to-brand-600 
+           text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 active:scale-95 
+           shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_25px_rgba(99,102,241,0.5)];
+  }
+
+  .btn-secondary {
+    @apply bg-white/10 hover:bg-white/20 border border-white/10 text-white font-semibold 
+           px-6 py-3 rounded-xl transition-all duration-300 active:scale-95 backdrop-blur-md;
+  }
+
+  .btn-danger {
+    @apply bg-red-500/10 hover:bg-red-500 border border-red-500/30 hover:border-red-400 
+           text-red-400 hover:text-white font-semibold px-4 py-2.5 rounded-xl 
+           transition-all duration-300 active:scale-95;
+  }
+
+  .nav-link {
+    @apply relative flex items-center gap-2 px-4 py-2 rounded-xl text-slate-400 hover:text-white 
+           transition-all duration-300 font-medium text-sm hover:bg-white/5;
+  }
+
+  .nav-link-active {
+    @apply flex items-center gap-2 px-4 py-2 rounded-xl text-white bg-brand-600/30 
+           border border-brand-500/50 font-bold text-sm shadow-[0_0_15px_rgba(99,102,241,0.2)];
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase;
+  }
+
+  .badge-brand { @apply badge bg-brand-500/20 text-brand-400 border border-brand-500/30; }
+  .badge-accent { @apply badge bg-accent-500/20 text-accent-400 border border-accent-500/30; }
+  .badge-success { @apply badge bg-emerald-500/20 text-emerald-400 border border-emerald-500/30; }
+
+  .stat-card {
+    @apply glass-card p-6 flex flex-col gap-3 hover:border-white/20 transition-all duration-500;
+  }
+
+  .input-label {
+    @apply text-sm font-semibold text-slate-400 mb-1.5 block ml-1;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-400 via-brand-200 to-accent-400 bg-clip-text text-transparent;
+  }
+
+  .bg-mesh {
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+      radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+      radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .shimmer {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full 
+           before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r 
+           before:from-transparent before:via-white/10 before:to-transparent;
+  }
+
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
+  }
+}

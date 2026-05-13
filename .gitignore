@@ -1,0 +1,11 @@
+node_modules/
+target/
+backend/target/
+frontend/node_modules/
+*.jar
+*.class
+application.properties
+.env
+.idea/
+.vscode/
+*.log
